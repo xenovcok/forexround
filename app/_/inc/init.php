@@ -4,7 +4,7 @@
 	require("_/inc/functions.php");
 
 	//Constants
-	define("FROM_EMAIL", "www.bmt.com <webform@www.bmt.com>");
+	define("FROM_EMAIL", "www.forexgo.com <webform@www.forexgo.com>");
 	
 	//Setup Variable for tracking VirtualPageViews in analytics.
 	$VirtualPageView = "";
@@ -26,7 +26,7 @@
 			define("ANALYTICS_ID", "");
 			break;
 		
-		case 'www.bmt.com':
+		case 'www.forexgo.com':
 			define("CONTACT_EMAIL", "");
 			define("ANALYTICS_ID", "");
 			break;

@@ -13,7 +13,7 @@
 <body>
     <?php require('_/inc/header.php'); ?>
     <div id="PageBody">
-        <h1>www.bmtsmoke.com</h1>        Your site is already wired up with:
+        <h1>www.forexgo.com</h1>        Your site is already wired up with:
         <ul>
             <li>Modernizr</li>
             <li>Jquery (1.10)</li>

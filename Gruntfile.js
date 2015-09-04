@@ -1,4 +1,4 @@
-// Generated on 2015-09-02 using generator-php 0.4.0
+// Generated on 2015-09-04 using generator-php 0.4.0
 'use strict';
 
 // # Folder Paths
@@ -19,7 +19,7 @@ module.exports = function (grunt) {
     var yeomanConfig = {
         app: 'app',
         dist: 'dist',
-        siteURL: 'www.bmt.com',
+        siteURL: 'www.forexgo.com',
         devURL: 'localhost',
         devPort: 8080
     };
@@ -43,20 +43,11 @@ module.exports = function (grunt) {
             livereload: {
                 options: {livereload: 1025},
                 files: [
-                '<%= yeoman.app %>/_/css/**/*.css',
-                '<%= yeoman.app %>/_/js/**/*',
-                '<%= yeoman.app %>/_/img/**/*',
-                '<%= yeoman.app %>/**/*.php'
+                    '<%= yeoman.app %>/_/css/**/*.css',
+                    '<%= yeoman.app %>/_/js/**/*',
+                    '<%= yeoman.app %>/_/img/**/*',
+                    '<%= yeoman.app %>/**/*.php'
                 ]
-            }
-        },
-
-        injector: {
-            options: {},
-            local_dependencies: {
-                files: {
-                    'index.php': ['**/*.js', '**/*.css']
-                }
             }
         },
 
@@ -80,17 +71,17 @@ module.exports = function (grunt) {
         //  and open a web browser to the provided hostname.
         php: {
             server: {  //Configuration options for the "server" task (i.e. during development).
-            options: {
-                /*keepalive: true,*/
-                hostname: '<%= yeoman.devURL %>',
-                port: '<%= yeoman.devPort %>',
+                options: {
+                    /*keepalive: true,*/
+                    hostname: '<%= yeoman.devURL %>',
+                    port: '<%= yeoman.devPort %>',
                     base: '<%= yeoman.app %>', //Set the document root to the app folder.
                     router: '../router.php',
                     open: true
                 }
             },
             dist: { // The "server" task can pass in a "dist" arguement. Configure the server accordingly.
-            options: {
+                options: {
                     //keepalive: true,
                     hostname: '<%= yeoman.devURL %>',
                     port: '<%= yeoman.devPort %>',
@@ -113,16 +104,16 @@ module.exports = function (grunt) {
         clean: {
             server: '.tmp',     // For the "server" task, we only need to clean the .tmp folder.
             dist: {             // For the "dist" task, we need to clean out several folders.
-            files: [{
-                dot: true,
-                src: [
-                '.tmp',
-                '<%= yeoman.dist %>/**/*',
-                '!<%= yeoman.dist %>/.git*'
-                ]
-            }]
-        }
-    },
+                files: [{
+                    dot: true,
+                    src: [
+                        '.tmp',
+                        '<%= yeoman.dist %>/**/*',
+                        '!<%= yeoman.dist %>/.git*'
+                    ]
+                }]
+            }
+        },
 
 
         // JSHINT
@@ -135,12 +126,12 @@ module.exports = function (grunt) {
                 jshintrc: '.jshintrc'
             },
             all: [
-            'Gruntfile.js',
-            '<%= yeoman.app %>/_/js/**/*.js',
-            '!<%= yeoman.app %>/_/js/lib/*',
-        'test/spec/{,*/}*.js'
-        ]
-    },
+                'Gruntfile.js',
+                '<%= yeoman.app %>/_/js/**/*.js',
+                '!<%= yeoman.app %>/_/js/lib/*',
+                'test/spec/{,*/}*.js'
+            ]
+        },
 
         // INLINELINT
         //  The inlinelint operation performs the same operation does the same job
@@ -148,8 +139,8 @@ module.exports = function (grunt) {
         //  html/php files.
         inlinelint: {
             all: [
-            '<%= yeoman.app %>/**/*{.html,.php}',
-            '!<%= yeoman.app %>/_/bower_components/**/*{.html,.php}'
+                '<%= yeoman.app %>/**/*{.html,.php}',
+                '!<%= yeoman.app %>/_/bower_components/**/*{.html,.php}'
             ]
         },
 
@@ -235,6 +226,14 @@ module.exports = function (grunt) {
         //     }
         //},
 
+        injector: {
+            options: {},
+            local_dependencies: {
+              files: {
+                '<%= yeoman.dist %>/_/inc/head.php' : ['<%= yeoman.dist %>/_/css/*.css']
+              }
+            }
+        },
 
         // CONCAT
         //  The concat operation is used to combine several files
@@ -332,12 +331,12 @@ module.exports = function (grunt) {
                     cwd: '<%= yeoman.app %>',
                     dest: '<%= yeoman.dist %>',
                     src: [
-                    '*.{ico,png,txt}',
-                    '.htaccess',
-                    '_/img/**/*.{webp,gif}',
-                    '_/foundation/images/**/*.{png,jpg,gif}',
-                    '_/css/fonts/*',
-                    '**/*.php'
+                        '*.{ico,png,txt}',
+                        '.htaccess',
+                        '_/img/**/*.{webp,gif}',
+                        '_/foundation/images/**/*.{png,jpg,gif}',
+                        '_/css/fonts/*',
+                        '**/*.php'
                     ]
                 },{
                     //Copy the bootcamp icon font files to the correct dist folder.
@@ -358,9 +357,9 @@ module.exports = function (grunt) {
         //  the operations to be run concurrently, and it will be done.
         concurrent: {
             dist: [
-            'imagemin',
-            'svgmin',
-            'htmlmin'
+                'imagemin',
+                'svgmin',
+                'htmlmin'
             ]
         }
     });
@@ -397,7 +396,7 @@ module.exports = function (grunt) {
             'clean:server',
             'php:server',
             'watch'
-            ]);
+        ]);
     });
 
 
@@ -414,8 +413,9 @@ module.exports = function (grunt) {
         'copy:dist',
         'rev',
         'usemin',
-        'processhtml:dist'
-        ]);
+        'processhtml:dist',
+        'injector'
+    ]);
 
 
     // DEFAULT
@@ -427,5 +427,5 @@ module.exports = function (grunt) {
         'phplint',
         //'test',
         'build'
-        ]);
+    ]);
 };
