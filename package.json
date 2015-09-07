@@ -1,7 +1,9 @@
 {
   "name": "wwwforexgocom",
   "version": "0.1.0",
-  "dependencies": {},
+  "dependencies": {
+    "font-awesome": "^4.4.0"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-concurrent": "~0.1.0",
